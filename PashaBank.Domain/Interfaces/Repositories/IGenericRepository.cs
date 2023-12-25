@@ -6,7 +6,7 @@ namespace PashaBank.Domain.Interfaces.Repositories
     {
         Task<bool> Any(Expression<Func<T, bool>> predicate);
 
-        Task<T?> GetById(int Id);
+        Task<T?> GetById(Guid Id);
         Task<T?> FindFirst(Expression<Func<T, bool>> predicate);
 
         Task<IEnumerable<T>> GetAllAsync();

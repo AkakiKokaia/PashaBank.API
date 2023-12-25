@@ -16,7 +16,7 @@ namespace PashaBank.Infrastructure.Repositories
 
         public virtual async Task<bool> Any(Expression<Func<T, bool>> predicate) => await context.Set<T>().AnyAsync(predicate);
 
-        public virtual async Task<T?> GetById(int Id) => await context.Set<T>().FindAsync(Id);
+        public virtual async Task<T?> GetById(Guid Id) => await context.Set<T>().FindAsync(Id);
         public virtual async Task<T?> FindFirst(Expression<Func<T, bool>> predicate) => await context.Set<T>().FirstOrDefaultAsync(predicate);
 
         public virtual async Task<IEnumerable<T>> GetAllAsync() => await context.Set<T>().ToListAsync();
