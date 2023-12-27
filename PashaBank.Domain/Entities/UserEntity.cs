@@ -23,9 +23,10 @@ namespace PashaBank.Domain.Entities
         public string ContactInformation { get; set; }
         public AddressType AddressType { get; set; }
         public string Address { get; set; }
-        public Guid RecommendedById { get; set; }
+        public Guid? RecommendedById { get; set; }
 
         public virtual ICollection<UserRoleEntity> Roles { get; } = new List<UserRoleEntity>();
         public virtual ICollection<RefreshTokenEntity> RefreshTokens { get; set; } = new List<RefreshTokenEntity>();
+        public virtual ICollection<ProductSalesEntity> ProductSales { get; set; } = new List<ProductSalesEntity>();
     }
 }

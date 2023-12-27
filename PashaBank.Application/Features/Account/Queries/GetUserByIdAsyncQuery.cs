@@ -1,16 +1,8 @@
 ﻿using AutoMapper;
-using PashaBank.Application.DTOs.User;
-using PashaBank.Application.Exceptions;
-using PashaBank.Application.Features.Account.Commands;
-using PashaBank.Application.Wrappers;
-using PashaBank.Domain.Entities;
-using PashaBank.Domain.Interfaces;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PashaBank.Application.DTOs.User;
+using PashaBank.Application.Wrappers;
+using PashaBank.Domain.Interfaces;
 
 namespace PashaBank.Application.Features.Account.Queries
 {

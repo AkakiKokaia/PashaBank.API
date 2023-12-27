@@ -1,6 +1,6 @@
 ﻿using PashaBank.Domain.Entities;
 using PashaBank.Domain.Interfaces.Repositories.RefreshToken;
-using PashaBank.Infrastucture;
+using PashaBank.Infrastructure;
 
 namespace PashaBank.Infrastructure.Repositories.User
 {

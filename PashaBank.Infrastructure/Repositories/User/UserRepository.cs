@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PashaBank.Domain.Entities;
 using PashaBank.Domain.Interfaces;
 using PashaBank.Domain.Interfaces.Repositories.User;
-using PashaBank.Infrastucture;
+using PashaBank.Infrastructure;
 
 namespace PashaBank.Infrastructure.Repositories.User
 {

@@ -1,12 +1,14 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using PashaBank.Domain.Entities;
 using PashaBank.Domain.Entities.Common;
 using System.Security.Claims;
 
-namespace PashaBank.Infrastucture
+namespace PashaBank.Infrastructure
 {
     public class PashaBankDbContext : IdentityDbContext<UserEntity, RoleEntity, Guid, IdentityUserClaim<Guid>, IdentityUserRole<Guid>, IdentityUserLogin<Guid>, IdentityRoleClaim<Guid>, IdentityUserToken<Guid>>
     {
@@ -26,6 +28,8 @@ namespace PashaBank.Infrastucture
         public DbSet<RoleEntity> Role { get; set; }
         public DbSet<UserRoleEntity> UserRoles { get; set; }
         public DbSet<RefreshTokenEntity> RefreshTokens { get; set; }
+        public DbSet<ProductEntity> Products { get; set; }
+        public DbSet<ProductSalesEntity> ProductSales { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

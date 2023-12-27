@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PashaBank.Domain\PashaBank.Domain.csproj" />
+    <ProjectReference Include="..\PashaBank.Infrastructure\PashaBank.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

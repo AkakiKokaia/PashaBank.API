@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PashaBank.Domain.Entities.Common;
 using PashaBank.Domain.Interfaces.Repositories;
-using PashaBank.Infrastucture;
+using PashaBank.Infrastructure;
 using System.Linq.Expressions;
 
 namespace PashaBank.Infrastructure.Repositories

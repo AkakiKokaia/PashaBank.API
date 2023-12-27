@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using PashaBank.Domain.Entities;
 
-namespace PashaBank.Infrastucture
+namespace PashaBank.Infrastructure
 {
     public class DbInitializer
     {
@@ -51,6 +53,15 @@ namespace PashaBank.Infrastucture
 
                 role = new RoleEntity
                 {
+                    Id = Guid.Parse("4edf7903-ee5f-4b74-ba56-d8e579771f2a"),
+                    Name = "Distributor",
+                    NormalizedName = "DISTRIBUTOR",
+                    ConcurrencyStamp = null
+                };
+                context.Add(role);
+                role = new RoleEntity
+                {
+                    Id = Guid.Parse("0a194ecb-fba2-4a88-915f-1bc41a4c3555"),
                     Name = "User",
                     NormalizedName = "USER",
                     ConcurrencyStamp = null
@@ -58,6 +69,7 @@ namespace PashaBank.Infrastucture
                 context.Add(role);
                 role = new RoleEntity
                 {
+                    Id = Guid.Parse("0bfecbe5-e358-46af-90c5-076c2f12c220"),
                     Name = "Administrator",
                     NormalizedName = "ADMINISTRATOR",
                     ConcurrencyStamp = null
