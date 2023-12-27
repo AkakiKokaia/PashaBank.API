@@ -76,7 +76,11 @@ public class Program
 
             app.UseHttpsRedirection();
 
-            app.UseCors();
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyHeader();
+                builder.AllowAnyMethod();
+            });
 
             app.UseAuthentication();
 

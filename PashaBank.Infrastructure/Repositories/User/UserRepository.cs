@@ -4,6 +4,7 @@ using PashaBank.Domain.Entities;
 using PashaBank.Domain.Interfaces;
 using PashaBank.Domain.Interfaces.Repositories.User;
 using PashaBank.Infrastructure;
+using PashaBank.Infrastructure.Constants;
 
 namespace PashaBank.Infrastructure.Repositories.User
 {
@@ -61,8 +62,8 @@ namespace PashaBank.Infrastructure.Repositories.User
             var result = await _userManager.CreateAsync(user, password);
             if (result.Succeeded)
             {
-                var getUser = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == user.Email);
-                await _uow.userRoleRepository.AddToRoleAsync(getUser, Guid.NewGuid()); //Need Seeding
+                var getUser = await _userManager.Users.FirstOrDefaultAsync(x => x.PersonalNumber == user.PersonalNumber);
+                await _uow.userRoleRepository.AddToRoleAsync(getUser, RoleConstants.DistributorRole);
             }
             else 
             {

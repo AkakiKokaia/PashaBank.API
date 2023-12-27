@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PashaBank.Domain.Interfaces;
-using PashaBank.Domain.Interfaces.Repositories.RefreshToken;
 using PashaBank.Domain.Interfaces.Repositories.User;
 
 namespace PashaBank.Infrastructure.Repositories
@@ -16,7 +15,6 @@ namespace PashaBank.Infrastructure.Repositories
 
         #region Repositories
 
-        public IRefreshTokenRepository refreshTokenRepository => _serviceProvider.GetService<IRefreshTokenRepository>();
         public IUserRepository userRepository => _serviceProvider.GetService<IUserRepository>();
         public IUserRoleRepository userRoleRepository => _serviceProvider.GetService<IUserRoleRepository>();
 

@@ -10,7 +10,7 @@ using System.Security.Claims;
 
 namespace PashaBank.Infrastructure
 {
-    public class PashaBankDbContext : IdentityDbContext<UserEntity, RoleEntity, Guid, IdentityUserClaim<Guid>, IdentityUserRole<Guid>, IdentityUserLogin<Guid>, IdentityRoleClaim<Guid>, IdentityUserToken<Guid>>
+    public class PashaBankDbContext : IdentityDbContext<UserEntity, RoleEntity, Guid, IdentityUserClaim<Guid>, UserRoleEntity, IdentityUserLogin<Guid>, IdentityRoleClaim<Guid>, IdentityUserToken<Guid>>
     {
         protected readonly IConfiguration Configuration;
         protected readonly IHttpContextAccessor _httpContextAccessor;
@@ -27,7 +27,6 @@ namespace PashaBank.Infrastructure
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<RoleEntity> Role { get; set; }
         public DbSet<UserRoleEntity> UserRoles { get; set; }
-        public DbSet<RefreshTokenEntity> RefreshTokens { get; set; }
         public DbSet<ProductEntity> Products { get; set; }
         public DbSet<ProductSalesEntity> ProductSales { get; set; }
 

@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using PashaBank.Domain.Entities;
 using PashaBank.Domain.Interfaces.Repositories.User;
-using PashaBank.Infrastructure;
 
 namespace PashaBank.Infrastructure.Repositories.User
 {
@@ -21,7 +20,7 @@ namespace PashaBank.Infrastructure.Repositories.User
 
         public async Task AddToRoleAsync(UserEntity user, Guid roleId)
         {
-            await _dbContext.UserRoles.AddAsync(new UserRoleEntity() { UserId = user.Id, RoleId = roleId });
+            var test = await _dbContext.UserRoles.AddAsync(new UserRoleEntity() { UserId = user.Id, RoleId = roleId });
             await _dbContext.SaveChangesAsync();
         }
     }

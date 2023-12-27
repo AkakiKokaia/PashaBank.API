@@ -61,14 +61,6 @@ namespace PashaBank.Infrastructure
                 context.Add(role);
                 role = new RoleEntity
                 {
-                    Id = Guid.Parse("0a194ecb-fba2-4a88-915f-1bc41a4c3555"),
-                    Name = "User",
-                    NormalizedName = "USER",
-                    ConcurrencyStamp = null
-                };
-                context.Add(role);
-                role = new RoleEntity
-                {
                     Id = Guid.Parse("0bfecbe5-e358-46af-90c5-076c2f12c220"),
                     Name = "Administrator",
                     NormalizedName = "ADMINISTRATOR",

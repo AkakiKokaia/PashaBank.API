@@ -20,12 +20,6 @@ namespace PashaBank.Infrastructure.EntityConfigurations.User
                 .HasForeignKey(ur => ur.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder
-                .HasMany(rt => rt.RefreshTokens)
-                .WithOne(u => u.User)
-                .HasForeignKey(rt => rt.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
-
             builder.Property(x => x.FirstName).HasMaxLength(50);
             builder.Property(x => x.Surname).HasMaxLength(50);
             builder.Property(x => x.DocumentSeries).HasMaxLength(10);

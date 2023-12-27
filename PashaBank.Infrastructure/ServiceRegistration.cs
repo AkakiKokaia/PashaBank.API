@@ -6,11 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using PashaBank.Domain.Entities;
-using PashaBank.Domain.Interfaces;
-using PashaBank.Domain.Interfaces.Repositories.RefreshToken;
 using PashaBank.Domain.Interfaces.Repositories.User;
-using PashaBank.Domain.Interfaces.Services;
-using PashaBank.Infrastructure.Repositories;
 using PashaBank.Infrastructure.Repositories.User;
 using System.Text;
 
@@ -21,7 +17,6 @@ namespace PashaBank.Infrastructure
         public static void AddInfrastructureLayer(this IServiceCollection services, IConfiguration configuration)
         {
             #region Repositories
-            services.AddTransient<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserRoleRepository, UserRoleRepository>();
             #endregion

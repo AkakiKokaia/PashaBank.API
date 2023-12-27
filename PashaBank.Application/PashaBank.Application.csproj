@@ -24,4 +24,8 @@
     <ProjectReference Include="..\PashaBank.Infrastructure\PashaBank.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

@@ -1,17 +1,16 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MediatR;
+using PashaBank.Application.Wrappers;
 using PashaBank.Domain.Enums;
 
-namespace PashaBank.Domain.Entities
+namespace PashaBank.Application.Features.Account.Commands.Register
 {
-    public class UserEntity : IdentityUser<Guid>
+    public class RegisterAsyncCommand : IRequest<Response<bool>>
     {
-        public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public DateTimeOffset DateOfBirth { get; set; }
         public GenderTypeEnum Gender { get; set; }
         public string PhotoURL { get; set; }
-        public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now;
         public DocumentTypeEnum DocumentType { get; set; }
         public string? DocumentSeries { get; set; }
         public string? DocumentNumber { get; set; }
@@ -24,8 +23,6 @@ namespace PashaBank.Domain.Entities
         public AddressType AddressType { get; set; }
         public string Address { get; set; }
         public Guid? RecommendedById { get; set; }
-
-        public virtual ICollection<UserRoleEntity> Roles { get; } = new List<UserRoleEntity>();
-        public virtual ICollection<ProductSalesEntity> ProductSales { get; set; } = new List<ProductSalesEntity>();
+        public string Password { get; set; }
     }
 }

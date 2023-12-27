@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using PashaBank.Application.DTOs.Account;
 using PashaBank.Application.DTOs.User;
-using PashaBank.Application.Features.Account.Commands;
+using PashaBank.Application.Features.Account.Commands.Register;
 using PashaBank.Domain.Entities;
 using System;
 using System.Collections.Generic;
