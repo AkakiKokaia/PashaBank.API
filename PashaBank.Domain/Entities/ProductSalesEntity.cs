@@ -7,6 +7,7 @@ namespace PashaBank.Domain.Entities
         public Guid UserId { get; set; }
         public DateTimeOffset DateOfSale { get; set; }
         public Guid ProductId { get; set; }
+        public decimal SellPrice { get; set; }  
         public decimal TotalPrice { get; set; }
 
         public virtual ProductEntity Product { get; set; }

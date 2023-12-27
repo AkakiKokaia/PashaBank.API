@@ -2,13 +2,9 @@
 using PashaBank.Application.DTOs.Account;
 using PashaBank.Application.DTOs.User;
 using PashaBank.Application.Features.Account.Commands.Register;
+using PashaBank.Application.Features.Product.Commands;
+using PashaBank.Application.Features.ProductSales.Commands;
 using PashaBank.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace PashaBank.Application.Mappings
 {
@@ -17,6 +13,10 @@ namespace PashaBank.Application.Mappings
         public GeneralProfile() 
         {
             CreateMap<RegisterAsyncCommand, UserEntity>().ReverseMap();
+            CreateMap<AddProductAsyncCommand, ProductEntity>().ReverseMap();
+            CreateMap<AddProductSaleAsyncCommand, ProductSalesEntity>().ReverseMap();
+
+
             CreateMap<UserEntity, GetUserResponse>().ReverseMap();
             CreateMap<LoginResponse, UserResponse>().ReverseMap();
             CreateMap<LoginResponse, UserEntity>().ReverseMap();

@@ -1,4 +1,6 @@
-﻿using PashaBank.Domain.Interfaces.Repositories.User;
+﻿using PashaBank.Domain.Interfaces.Repositories.Product;
+using PashaBank.Domain.Interfaces.Repositories.ProductSales;
+using PashaBank.Domain.Interfaces.Repositories.User;
 
 namespace PashaBank.Domain.Interfaces
 {
@@ -6,5 +8,7 @@ namespace PashaBank.Domain.Interfaces
     {
         IUserRepository userRepository { get; }
         IUserRoleRepository userRoleRepository { get; }
+        IProductRepository productRepository { get; }
+        IProductSaleRepository productSalesRepository { get; }
     }
 }

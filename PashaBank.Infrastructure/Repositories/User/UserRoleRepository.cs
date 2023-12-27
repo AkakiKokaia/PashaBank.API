@@ -20,7 +20,7 @@ namespace PashaBank.Infrastructure.Repositories.User
 
         public async Task AddToRoleAsync(UserEntity user, Guid roleId)
         {
-            var test = await _dbContext.UserRoles.AddAsync(new UserRoleEntity() { UserId = user.Id, RoleId = roleId });
+            await _dbContext.UserRoles.AddAsync(new UserRoleEntity() { UserId = user.Id, RoleId = roleId });
             await _dbContext.SaveChangesAsync();
         }
     }
