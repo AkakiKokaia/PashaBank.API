@@ -195,53 +195,6 @@ namespace PashaBank.Infrastructure.Migrations
                     b.ToTable("ProductSales");
                 });
 
-            modelBuilder.Entity("PashaBank.Domain.Entities.RefreshTokenEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("CreatedById")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ExpirationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("RefreshToken")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Revoked")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("RevokedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("UpdatedById")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("RefreshTokens");
-                });
-
             modelBuilder.Entity("PashaBank.Domain.Entities.RoleEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -466,17 +419,6 @@ namespace PashaBank.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("PashaBank.Domain.Entities.RefreshTokenEntity", b =>
-                {
-                    b.HasOne("PashaBank.Domain.Entities.UserEntity", "User")
-                        .WithMany("RefreshTokens")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("PashaBank.Domain.Entities.UserRoleEntity", b =>
                 {
                     b.HasOne("PashaBank.Domain.Entities.RoleEntity", "Role")
@@ -504,8 +446,6 @@ namespace PashaBank.Infrastructure.Migrations
             modelBuilder.Entity("PashaBank.Domain.Entities.UserEntity", b =>
                 {
                     b.Navigation("ProductSales");
-
-                    b.Navigation("RefreshTokens");
 
                     b.Navigation("Roles");
                 });

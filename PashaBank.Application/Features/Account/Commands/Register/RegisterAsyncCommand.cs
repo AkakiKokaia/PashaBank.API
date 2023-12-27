@@ -4,7 +4,7 @@ using PashaBank.Domain.Enums;
 
 namespace PashaBank.Application.Features.Account.Commands.Register
 {
-    public class RegisterAsyncCommand : IRequest<Response<bool>>
+    public sealed record RegisterAsyncCommand : IRequest<Response<bool>>
     {
         public string FirstName { get; set; }
         public string Surname { get; set; }
