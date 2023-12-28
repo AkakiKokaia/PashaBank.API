@@ -44,6 +44,7 @@ namespace PashaBank.Infrastructure
                 .WithMany(r => r.Users)
                 .HasForeignKey(ur => ur.RoleId);
 
+            builder.Entity<UserEntity>().Property(x => x.AccummulatedBonus).HasDefaultValue(0);
         }
     }
 }

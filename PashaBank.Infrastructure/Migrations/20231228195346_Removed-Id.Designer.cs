@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PashaBank.Infrastructure;
 
@@ -11,9 +12,10 @@ using PashaBank.Infrastructure;
 namespace PashaBank.Infrastructure.Migrations
 {
     [DbContext(typeof(PashaBankDbContext))]
-    partial class PashaBankDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231228195346_Removed-Id")]
+    partial class RemovedId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

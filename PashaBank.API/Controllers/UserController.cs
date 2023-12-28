@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PashaBank.Application.Features.Account.Commands.Bonuses;
 using PashaBank.Application.Features.Account.Commands.Delete;
 using PashaBank.Application.Features.Account.Commands.Register;
 using PashaBank.Application.Features.Account.Commands.Update;
@@ -23,5 +24,8 @@ namespace PashaBank.API.Controllers
 
         [HttpPut(nameof(UpdateUser))]
         public async Task<IActionResult> UpdateUser([FromForm] UpdateUserAsyncCommand request) => Ok(await Mediator.Send(request));
+
+        [HttpPost(nameof(CalculateBonuses))]
+        public async Task<IActionResult> CalculateBonuses([FromQuery] CalculateBonusesAsyncCommand request) => Ok(await Mediator.Send(request));
     }
 }

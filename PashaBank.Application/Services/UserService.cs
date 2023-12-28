@@ -38,7 +38,7 @@ namespace PashaBank.Application.Services
             return true;
         }
 
-        public async Task<decimal> AccummulatedBonusCalculator(List<ProductSalesEntity> productSales) // Sales between two dates
+        public async Task AccummulatedBonusCalculator(List<ProductSalesEntity> productSales)
         {
             var users = await GetUsersByProductSales(productSales);
 
@@ -52,7 +52,6 @@ namespace PashaBank.Application.Services
                 _context.Update(user);
             }
             await _context.SaveChangesAsync();
-            return 0;
         }
 
         public async Task<List<UserEntity>> GetUsersByProductSales(List<ProductSalesEntity> productSales)
@@ -65,7 +64,7 @@ namespace PashaBank.Application.Services
         {
             if (level == 3) return;
             level++;
-            var children = _context.Users.Where(u => u.RecommendedById == userId).ToList();
+            var children = users.Where(u => u.RecommendedById == userId).ToList();
             foreach (var child in children)
             {
                 descendants.Add(child, level);
