@@ -9,8 +9,14 @@ namespace PashaBank.Domain.Entities
         public Guid ProductId { get; set; }
         public decimal SellPrice { get; set; }  
         public decimal TotalPrice { get; set; }
+        public bool WasCalculated { get; set; }
 
         public virtual ProductEntity Product { get; set; }
         public virtual UserEntity User { get; set; }
+
+        public void SetWasCalculated()
+        {
+            WasCalculated = true;
+        }
     }
 }
