@@ -1,10 +1,9 @@
-﻿using PashaBank.Domain.Entities;
-using PashaBank.Domain.Interfaces;
+﻿using PashaBank.Domain.Interfaces.Services;
 using PashaBank.Infrastructure;
 
 namespace PashaBank.Application.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly PashaBankDbContext _context;
 
@@ -13,22 +12,28 @@ namespace PashaBank.Application.Services
             _context = context;
         }
 
-        public UserEntity GetSixthStageParent(Guid? recommendedById)
+        public bool IsRecommendationAllowed(Guid? recommendedById, int level)
         {
             var entity = _context.Users.Find(recommendedById);
-            return GetParentRecursive(entity, 6);
+            if (level == 0 && entity != null)
+            {
+                return false;
+            }
+            if (entity.RecommendedById == null)
+            {
+                return true;
+            }
+            return IsRecommendationAllowed(entity.RecommendedById, level - 1);
         }
 
-        private UserEntity GetParentRecursive(UserEntity entity, int level)
+        public bool HasRecommendedMoreThanThree(Guid? recommendedById)
         {
-            if(level <= 0 || entity == null)
+            var entity = _context.Users.Where(x => x.RecommendedById == recommendedById).Count();
+            if (entity >= 3)
             {
-                return entity;
+                return false;
             }
-
-            //_context.Entry(entity).Reference(e => e.RecommendedById).Load();
-            //return GetParentRecursive(entity.RecommendedById, level - 1);
-            return null;
+            return true;
         }
     }
 }

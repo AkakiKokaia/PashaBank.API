@@ -2,9 +2,11 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using PashaBank.Application.Behaviors;
+using PashaBank.Application.Services;
 using PashaBank.Domain.Interfaces;
 using PashaBank.Domain.Interfaces.Repositories.Product;
 using PashaBank.Domain.Interfaces.Repositories.ProductSales;
+using PashaBank.Domain.Interfaces.Services;
 using PashaBank.Infrastructure.Repositories;
 using PashaBank.Infrastructure.Repositories.Product;
 using PashaBank.Infrastructure.Repositories.ProductSale;
@@ -21,10 +23,18 @@ namespace PashaBank.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
-            #region Services
+            #region Repositories
+
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductSaleRepository, ProductSaleRepository>();
+
+            #endregion
+
+            #region Services
+
+            services.AddTransient<IUserService, UserService>();
+
             #endregion
         }
     }
