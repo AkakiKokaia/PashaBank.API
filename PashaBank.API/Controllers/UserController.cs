@@ -1,8 +1,8 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using PashaBank.Application.Features.Account.Commands.Delete;
 using PashaBank.Application.Features.Account.Commands.Register;
+using PashaBank.Application.Features.Account.Commands.Update;
+using PashaBank.Application.Features.Account.Queries.GetUsers;
 using PashaBank.Application.Wrappers;
 
 namespace PashaBank.API.Controllers
@@ -13,5 +13,15 @@ namespace PashaBank.API.Controllers
     {
         [HttpPost(nameof(Register))]
         public async Task<IActionResult> Register(RegisterAsyncCommand request) => Ok(await Mediator.Send(request));
+
+        [HttpGet(nameof(GetUsers))]
+        public async Task<GetUsersAsyncQueryResponse> GetUsers([FromQuery] GetUsersAsyncQuery request) =>
+                 await Mediator.Send(request);
+
+        [HttpDelete(nameof(DeleteUser))]
+        public async Task<IActionResult> DeleteUser([FromQuery] DeleteUserAsyncCommand request) => Ok(await Mediator.Send(request));
+
+        [HttpPut(nameof(UpdateUser))]
+        public async Task<IActionResult> UpdateUser([FromForm] UpdateUserAsyncCommand request) => Ok(await Mediator.Send(request));
     }
 }
