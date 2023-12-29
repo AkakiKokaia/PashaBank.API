@@ -104,7 +104,7 @@ namespace PashaBank.Application.Services
                 _context.Update(sale);
             }
 
-            var userSalesTotal = productSales.Select(x => x.TotalPrice).Sum();
+            var userSalesTotal = productSales.Where(x => x.UserId == userId).Sum(x => x.TotalPrice);
 
             return userSalesTotal * percentage / 100;
         }

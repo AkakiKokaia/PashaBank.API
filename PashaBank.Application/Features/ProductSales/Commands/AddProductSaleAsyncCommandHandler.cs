@@ -1,16 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
-using PashaBank.Application.Exceptions;
-using PashaBank.Application.Features.Product.Commands;
 using PashaBank.Application.Wrappers;
 using PashaBank.Domain.Entities;
 using PashaBank.Domain.Interfaces;
-using PashaBank.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PashaBank.Application.Features.ProductSales.Commands
 {

@@ -23,6 +23,8 @@ public class RegisterAsyncCommandHandler : IRequestHandler<RegisterAsyncCommand,
 
     public async Task<Response<bool>> Handle(RegisterAsyncCommand request, CancellationToken cancellationToken)
     {
+        var validator = new RegisterAsyncCommandValidator();
+        var rez = validator.Validate(request);
         var newUser = _mapper.Map<UserEntity>(request);
         var user = await _uow.userRepository.GetAllWhereAsync(x => x.PersonalNumber == newUser.PersonalNumber);
         if (user.Any()) throw new ApiException("User Already Registered");
