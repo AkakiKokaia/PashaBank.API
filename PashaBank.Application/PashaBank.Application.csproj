@@ -28,4 +28,27 @@
     <Folder Include="Features\Product\Queries\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Resources\ValidationErrorMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValidationErrorMessages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ValidationErrorMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationErrorMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\kokai\OneDrive\Desktop\New folder %282%29\PashaBank.API\PashaBank.Application\Behaviors\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\kokai\OneDrive\Desktop\New folder (2)\PashaBank.API\PashaBank.Application\Behaviors\.editorconfig" />
+  </ItemGroup>
+
 </Project>

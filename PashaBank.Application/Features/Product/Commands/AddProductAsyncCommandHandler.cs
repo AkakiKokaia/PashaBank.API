@@ -28,7 +28,7 @@ namespace PashaBank.Application.Features.Product.Commands
         public async Task<Response<bool>> Handle(AddProductAsyncCommand request, CancellationToken cancellationToken)
         {
             request.ProductCode.ToLower().Trim();
-            var productExists = _uow.productRepository.FindFirst(x => x.ProductCode == request.ProductCode);
+            var productExists = await _uow.productRepository.FindFirst(x => x.ProductCode == request.ProductCode);
             if (productExists != null)
             {
                 throw new ApiException("Product with the same product code already exists");

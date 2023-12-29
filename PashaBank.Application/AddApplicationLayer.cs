@@ -7,9 +7,11 @@ using PashaBank.Domain.Interfaces;
 using PashaBank.Domain.Interfaces.Repositories.Product;
 using PashaBank.Domain.Interfaces.Repositories.ProductSales;
 using PashaBank.Domain.Interfaces.Services;
+using PashaBank.Infrastructure;
 using PashaBank.Infrastructure.Repositories;
 using PashaBank.Infrastructure.Repositories.Product;
 using PashaBank.Infrastructure.Repositories.ProductSale;
+using PersonIdentificationDirectory.Utility.Behaviors;
 using System.Reflection;
 
 namespace PashaBank.Application
@@ -21,6 +23,8 @@ namespace PashaBank.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
             #region Repositories
@@ -34,6 +38,7 @@ namespace PashaBank.Application
             #region Services
 
             services.AddTransient<IUserService, UserService>();
+            services.AddScoped<ITransactionBehaviour>(p => p.GetRequiredService<PashaBankDbContext>());
 
             #endregion
         }

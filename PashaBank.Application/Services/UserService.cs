@@ -30,7 +30,8 @@ namespace PashaBank.Application.Services
 
         public bool HasRecommendedMoreThanThree(Guid? recommendedById)
         {
-            var entity = _context.Users.Where(x => x.RecommendedById == recommendedById).Count();
+            var entity = _context.Users.Count(x => x.RecommendedById == recommendedById);
+
             if (entity >= 3)
             {
                 return false;
@@ -76,7 +77,7 @@ namespace PashaBank.Application.Services
         {
             decimal finalPrice = GetPriceByDescendantLevel(userId, productSales);
 
-            foreach(var child in descendants)
+            foreach (var child in descendants)
             {
                 finalPrice += GetPriceByDescendantLevel(child.Key.Id, productSales, child.Value);
             }
@@ -92,7 +93,7 @@ namespace PashaBank.Application.Services
                 case 1:
                     percentage = 5;
                     break;
-                case 2: 
+                case 2:
                     percentage = 1;
                     break;
             }
@@ -103,7 +104,7 @@ namespace PashaBank.Application.Services
                 _context.Update(sale);
             }
 
-            var userSalesTotal = productSales.Where(x => x.UserId == userId).Sum(x => x.TotalPrice);
+            var userSalesTotal = productSales.Select(x => x.TotalPrice).Sum();
 
             return userSalesTotal * percentage / 100;
         }
