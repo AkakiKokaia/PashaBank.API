@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using PashaBank.Domain.Entities;
 using PashaBank.Domain.Interfaces;
+using PashaBank.Infrastructure.EntityConfigurations.User;
+using PashaBank.Infrastructure.EntityConfigurations.UserRoles;
 
 namespace PashaBank.Infrastructure
 {
@@ -97,6 +99,10 @@ namespace PashaBank.Infrastructure
                 .HasForeignKey(ur => ur.RoleId);
 
             builder.Entity<UserEntity>().Property(x => x.AccummulatedBonus).HasDefaultValue(0);
+
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new RoleConfiguration());
+            builder.ApplyConfiguration(new UserRolesConfiguration());
         }
     }
 }
