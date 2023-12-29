@@ -73,7 +73,7 @@ namespace PashaBank.Application.Services
             }
         }
 
-        public decimal CalculateBonus(Guid userId, Dictionary<UserEntity, int> descendants, List<ProductSalesEntity> productSales)
+        private decimal CalculateBonus(Guid userId, Dictionary<UserEntity, int> descendants, List<ProductSalesEntity> productSales)
         {
             decimal finalPrice = GetPriceByDescendantLevel(userId, productSales);
 
@@ -85,7 +85,7 @@ namespace PashaBank.Application.Services
             return finalPrice;
         }
 
-        public decimal GetPriceByDescendantLevel(Guid userId, List<ProductSalesEntity> productSales, int level = 0)
+        private decimal GetPriceByDescendantLevel(Guid userId, List<ProductSalesEntity> productSales, int level = 0)
         {
             var percentage = 10;
             switch (level)
