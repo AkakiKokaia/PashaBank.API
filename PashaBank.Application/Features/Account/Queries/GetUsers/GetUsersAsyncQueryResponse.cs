@@ -35,5 +35,6 @@ namespace PashaBank.Application.Features.Account.Queries.GetUsers
         public AddressType AddressType { get; set; }
         public string Address { get; set; }
         public Guid? RecommendedById { get; set; }
+        public decimal AccummulatedBonus { get; set; }
     }
 }

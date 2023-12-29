@@ -51,7 +51,8 @@ namespace PashaBank.Application.Features.Account.Queries.GetUsers
                     ContactInformation = x.ContactInformation,
                     AddressType = x.AddressType,
                     Address = x.Address,
-                    RecommendedById = x.RecommendedById
+                    RecommendedById = x.RecommendedById,
+                    AccummulatedBonus = x.AccummulatedBonus
                 })
                 .ToListAsync();
 
